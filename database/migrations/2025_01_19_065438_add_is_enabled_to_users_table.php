@@ -14,9 +14,12 @@ return new class extends Migration
     public function up()
 {
     Schema::table('users', function (Blueprint $table) {
-        $table->boolean('is_enabled')->default(true);  // Add a default value
+        if (!Schema::hasColumn('users', 'is_enabled')) {
+            $table->boolean('is_enabled')->default(true)->after('some_column');
+        }
     });
 }
+
 
 public function down()
 {
