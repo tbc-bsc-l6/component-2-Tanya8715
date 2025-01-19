@@ -44,6 +44,9 @@
                       <a href="{{route('edit.product',['product' => $product])}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit banner">
                         Edit
                       </a>
+                      <a href="{{route('delete.product',['product' => $product])}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete banner">
+                        Delete
+                      </a>
                     </td>
                   </tr>
                   @endforeach

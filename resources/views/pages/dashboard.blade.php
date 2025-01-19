@@ -1,8 +1,8 @@
 @extends('layout.master')
 
 @section('content')
-<body class="g-sidenav-show bg-gray-200" style="background-image: url('public/images/DALL·E 2025-01-14 12.00.44 - A beautifully crafted coffee cup with a steaming latte art on top placed on a rustic wooden table with natural sunlight shining through a window in th.webp'); background-size: cover; background-position: center;">
-  
+<body class="g-sidenav-show bg-gray-200" style="margin: 0; padding: 0;">
+
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -16,16 +16,18 @@
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            {{-- <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-              <input type="text" class="form-control">
-            </div> --}}
           </div>
         </div>
       </div>
     </nav>
     <!-- End Navbar -->
-   
+
+    <!-- Full-screen Image -->
+    <div style="text-align: center; margin: 0; padding: 0;">
+      <img src="{{ asset('images/background.webp') }}" alt="Beautiful coffee cup with latte art" 
+           style="width: 100vw; height: 100vh; object-fit: cover; border-radius: 0;">
+    </div>
+
   </main>
  
 </body>
