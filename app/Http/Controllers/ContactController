@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
+
+class ContactController extends Controller
+{
+    public function sendEmail(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'message' => 'required|string',
+        ]);
+
+        try {
+            // Send the email
+            Mail::send([], [], function ($message) use ($request) {
+                $message->to('example@example.com')  // Destination email
+                        ->subject('New Contact Message')  // Email subject
+                        ->from($request->email, $request->name)  // Sender's email and name
+                        ->setBody($request->message, 'text/html');  // Email body
+            });
+
+            // Redirect to a success page if email was sent
+            return redirect()->route('contact.success')->with('success', 'Your message has been sent successfully!');
+
+        } catch (\Exception $e) {
+            // Log error message for debugging
+            Log::error('Email sending failed: ' . $e->getMessage());
+
+            // Return error message if email fails to send
+            return redirect()->back()->with('error', 'Sorry, there was an issue sending your message. Please try again later.');
+        }
+    }
+}

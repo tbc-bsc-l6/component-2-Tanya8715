@@ -22,4 +22,10 @@ class ProductController extends Controller
     {
         return view('pages.product.edit-create',compact('product'));
     }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        return view('pages.product.index')->with('success','Product deleted'); 
+    }
 }
