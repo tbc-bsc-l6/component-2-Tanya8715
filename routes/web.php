@@ -32,13 +32,47 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::match(['get','post'],'/',[AuthController::class,'login'])->name('login');
 
-Route::group(['middleware'=>'auth'],function(){
-    Route::get('/dashboard',[PageController::class,'dashboard'])->name('dashboard');
-    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+// Authentication Routes
+Route::match(['get', 'post'], '/', [AuthController::class, 'login'])->name('login');
+Route::post('/register', [AuthController::class, 'register'])->name('register'); // Ensure this route uses POST only
+Route::get('register', [AuthController::class, 'register'])->name('register');
 
-    Route::get('/product',[ProductController::class,'index'])->name('product');
-    Route::get('/product/create',[ProductController::class,'create'])->name('create.product');
-    Route::get('/product/edit/{product}',[ProductController::class,'edit'])->name('edit.product');
+
+// Protected Routes (requires authentication)
+    Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    // Product Management Routes
+    Route::get('/product', [ProductController::class, 'index'])->name('product');
+    Route::get('/product/create', [ProductController::class, 'create'])->name('create.product');
+    Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('edit.product');
+    Route::post('/product/store', [ProductController::class, 'store'])->name('store.product');
+    Route::post('/product/update/{product}', [ProductController::class, 'update'])->name('update.product');
+    Route::get('/product/delete/{product}', [ProductController::class, 'destroy'])->name('delete.product');
+
+    // Other Routes
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('update.profile');
+    Route::get('/settings', [SettingController::class, 'index'])->name('settings');
+
+    // User Management
+    Route::get('/users', [UserController::class, 'index'])->name('users');
+    Route::get('/user/create', [UserController::class, 'create'])->name('create.user');
+    Route::post('/user/store', [UserController::class, 'store'])->name('store.user');
+    Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('edit.user');
+    Route::post('/user/update/{user}', [UserController::class, 'update'])->name('update.user');
+    Route::post('/user/delete/{user}', [UserController::class, 'destroy'])->name('delete.user');
 });
+
+// Public Routes (No authentication required)
+Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact/store', [ContactController::class, 'store'])->name('store.contact');
+
+
+Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.send');
+Route::get('/contact-success', function () {
+    return view('contact-success');
+})->name('contact.success');
