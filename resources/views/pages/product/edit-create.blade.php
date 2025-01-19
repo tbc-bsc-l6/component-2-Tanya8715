@@ -1,4 +1,5 @@
 @extends('layout.master')
+
 @section('content')
   <div class="main-content position-relative max-height-vh-100 h-100">
     <!-- Navbar -->
@@ -9,12 +10,19 @@
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Product</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">@if(!is_null($product)) Update @else Add @endif Product</h6>
+          <h6 class="font-weight-bolder mb-0">
+            @if(!is_null($product))
+              Update Product
+            @else
+              Add Product
+            @endif
+          </h6>
         </nav>
-      
       </div>
     </nav>
     <!-- End Navbar -->
-    @livewire('edit-create-product-component',['product' => $product])
+    
+    <!-- Livewire Component for Editing or Creating Product -->
+    @livewire('edit-create-product-component', ['product' => $product])
   </div>
 @endsection

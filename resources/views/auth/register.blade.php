@@ -2,7 +2,7 @@
 
 @section('content')
 <body class="bg-gray-200">
-  <main class="main-content  mt-0">
+  <main class="main-content min-vh-100" style="height: 100vh;">
     <div class="page-header align-items-start min-vh-100" style="background-image: url('https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container my-auto">
@@ -12,12 +12,6 @@
               <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                 <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
                   <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Sign Up</h4>
-                  <div class="row">
-                    <div class="col-2 text-center ms-auto">
-                      <a class="btn btn-link" href="javascript:;">
-                      </a>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div class="card-body">
