@@ -10,6 +10,7 @@
 <body>
     <h1>Contact Us</h1>
 
+    dd($request->all());
     <form method="POST" action="{{ route('contact.send') }}">
         @csrf
         <label for="name">Your Name:</label>

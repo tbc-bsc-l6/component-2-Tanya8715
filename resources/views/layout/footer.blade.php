@@ -6,8 +6,8 @@
         <div style="width: 45%;">
           <h5>Contact Information</h5>
           <p><strong>Address:</strong> Kathmandu, Nepal</p>
-          <p><strong>Email:</strong> example@example.com</p>
-          <p><strong>Phone:</strong> +977 123456789</p>
+          <p><strong>Email:</strong> atanya22@tbc.tbc.edu.np</p>
+          <p><strong>Phone:</strong> +977 9865029333</p>
 
           <!-- Contact Form -->
           <form id="contactForm" method="POST">

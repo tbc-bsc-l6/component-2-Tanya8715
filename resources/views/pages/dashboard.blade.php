@@ -12,7 +12,7 @@
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+          <h6 class="font-weight-bolder mb-0">Welcome to CafeCraft</h6>  <!-- Updated navbar title -->
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -22,10 +22,20 @@
     </nav>
     <!-- End Navbar -->
 
-    <!-- Full-screen Image -->
-    <div style="text-align: center; margin: 0; padding: 0;">
+    <!-- Full-screen Image with Title and Slogan -->
+    <div style="text-align: center; margin: 0; padding: 0; position: relative;">
       <img src="{{ asset('images/background.webp') }}" alt="Beautiful coffee cup with latte art" 
            style="width: 100vw; height: 100vh; object-fit: cover; border-radius: 0;">
+      <!-- CafeCraft Title without Box and moved down -->
+      <h1 style="position: absolute; top: 60%; left: 50%; transform: translateX(-50%); 
+                 font-size: 4rem; color: white; font-weight: bold;">
+        Welcome to CafeCraft
+      </h1>
+      <!-- Slogan below the title -->
+      <p style="position: absolute; top: 80%; left: 50%; transform: translateX(-50%); 
+                font-size: 1.5rem; color: white; font-weight: lighter; margin-top: 20px;">
+        Brewing moments, one cup at a time.
+      </p>
     </div>
 
   </main>
